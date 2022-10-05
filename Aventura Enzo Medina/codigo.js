@@ -1,68 +1,61 @@
-let objetos = "";
-let oro = 5;
-let vivo;
-
 let nombre = prompt("Elija el nombre de su aventurero");
 console.log("Bienvenido aventurero " + nombre);
 alert("Bienvenido aventurero " + nombre);
-let camino = prompt(
-    "Donde quieres iniciar tu aventura? " +
-    nombre +
-    " \nOpciones: bosque, ciudad, lago"
-);
-//Camino del bosque
-if ((camino = "bosque")) {
-alert(
-    "Llegas a un bosque tetrico y oscuro, sientes que algo podria atacarte en cualquier momento. \n Ves delante tuyo 2 caminos."
-);
-let caminoBosque = prompt("En que camino te aventuras, derecha o izquierda");
+let clase=prompt("Elige una clase para tu aventurero, puedes inventar una si quieres\nAlgunos ejemplos, guerrero, mago, barbaro");
+if(clase == "guerrero"){
+    console.log("Un clasico me gusta");
+    console.log("Eres un "+clase);
+}else{
+    console.log("Interesante eleccion, no la habia pensando");
+    console.log("Eres un "+clase);
 }
-if ((caminoBosque = "izquierda")) {
-  //Camino izquierda del bosque
-alert(
-    "Te adentras mas profundo en el bosque, al cabo de unos minutos un tronco cae de un arbol, es una trampa!"
-);
-}
-if (objetos != "Pocion") {
-alert(
-    "El tronco te golpea y mueres. Si tan solo tuvieras mejores reflejos :("
-);
-    debugger
-}
-if ((objetos = "Pocion")) {
-alert(
-    "Ni uno ni mil troncos son suficientes para superar tus reflejos despues de tomar esa pocion. \nSigues tu camino por el bosque hasta encontrarte con unos pequeños hongos al costado del camino"
-);
-let hongos = prompt(
-    "Comer hongo (c), ignorarlo(i) o tomarlo para despues (d)"
-);
-}
-if ((hongos = "c")) {
-alert(
-    "Tu estomago empieza a doler, tu vista se pone borrosa y te caes al piso inconsiente"
-);
-vivo = "false";
-}
-if ((hongos = "i")) {
-alert(
-    "Al final del camino ves una pequeña cueva. \nAl acercarte podes notar que hay ruidos dentro, como de alguien comiendo"
-);
-let cueva = prompt("Quieres adentrarte en la cueva? (si;no)");
-}
-if ((cueva = "si")) {
-alert(
-    "Al entrar en la cueva todo esta oscuro, cuando tus ojos al fin se acostumbran a la oscuridad ves una pequeña criatura verde, al mirarla ella tambien se percata de tu presencia y se acerca corriendo a atacarte"
-);
-}
-if ((objetos = "espada")) {
-alert(
-    "Logras sacar tu espada justo a tiempo para defenderte, tus agudos reflejos te lo ponen demasiado facil.\nEn cuestion de segundos logras desarmar al pequeño monstruo verde y matarlo.\nDebe ser el problema del que la gente de la ciudad estuvo hablando hace unos dias"
-);
-camino = prompt(
-    "Al terminar tu trabajo decides tomar otro camino, puedes volves al bosque y tomar el camino (derecha), puedes ir a la (ciudad) o aventurarte en el (lago) "
-);
-}
+alert("Este es el nacimiento de "+nombre+" el "+clase);
+alert("Necesitaras equipamiento para comenzar tu aventura.\nVoy a darte una lista con todas las cosas que tenemos a la venta para que puedas comenzar.");
+let equipo = prompt("Lista de equipo, pocion, espada, escudo, carpa, daga.\nCuentas con 100 monedas de oro para comprar, compra sabiamente, escribe el nombre del objeto para conocer sus precios. escribe s para dejar de preguntar");
 
-if ((vivo = "false")) {
-alert("Estas muerto, prueba de nuevo recargando la pagina");
+while(equipo!="s"){
+    switch (equipo){
+        case "pocion":
+            console.log("El precio de la pocion es 20 de oro");
+            break;
+        case "espada":
+            console.log("El precio de la espada es 40 de oro");
+            break;
+        case "escudo":
+            console.log("El precio del escudo es 30 de oro");
+            break;
+        case "carpa":
+            console.log("El precio de la carpa es 10 de oro");
+            break;
+        case "daga":
+            console.log("El precio de la daga es 15 de oro");
+            break;
+        default:
+            console.log("Eso no esta en la lista!");
+            break;
+    }
+    equipo=prompt("Consultar precio de equipo\nOpciones:pocion, espada, escudo, carpa, daga, capucha, comida. s para detenerse")
 }
+function sumaProductos(){
+    let producto1=parseInt(prompt("Ingresa el precio del primer producto"))
+    let producto2=parseInt(prompt("Ingresa el precio del segundo producto"))
+    let producto3=parseInt(prompt("Ingresa el precio del tercer producto"))
+    let producto4=parseInt(prompt("Ingresa el precio del cuarto producto"))
+    let producto5=parseInt(prompt("Ingresa el precio del quinto producto"))
+    let totalAPagar = producto1+producto2+producto3+producto4+producto5
+    console.log("El total de oro a pagar es "+totalAPagar)
+    if(totalAPagar>=101){
+        alert("No tienes oro suficiente, ve a completar aventuras o algo para comprar esto.")
+    }else{
+        alert("Gracias por su compra, ahora puede ir a cazar monstruos")
+    }
+}
+sumaProductos()
+
+
+
+
+
+
+
+
