@@ -2,7 +2,7 @@ let nombre = prompt("Elija el nombre de su aventurero");
 console.log("Bienvenido aventurero "+nombre);
 alert("Bienvenido aventurero "+nombre);
 let clase=prompt("Elige una clase para tu aventurero, puedes inventar una si quieres\nAlgunos ejemplos, guerrero, mago, barbaro");
-if(clase == "guerrero"||"mago"||"barbaro"){
+if((clase == "guerrero")||(clase == "barbaro")||(clase == "mago")){
     console.log("Un clasico me gusta");
     console.log("Eres un "+clase);
 }else{
@@ -18,7 +18,7 @@ let equipo = prompt("Lista de equipo, pocion, espada, escudo, carpa, daga.\nCuen
 const Equipo = [
     {
         nombre: "pocion",
-        precio:20,
+        precio:200,
     },
     {
         nombre: "espada",
@@ -30,7 +30,7 @@ const Equipo = [
     },
     {
         nombre:"carpa",
-        precio:15
+        precio:150
     },
     {
         nombre:"daga",
@@ -55,31 +55,62 @@ while(equipo!="s"){
             console.log("El precio de la daga es: "+Equipo[4].precio+" de oro");
             break;
         case "todos":
-            console.log(Equipo)
+            Equipo.forEach((equipo) => console.log(equipo.nombre+":"+equipo.precio))
             break;
         default:
             console.log("Eso no esta en la lista!");
             break;
     }
-    equipo=prompt("Consultar precio de equipo\nOpciones:pocion, espada, escudo, carpa, daga, capucha, comida. s para detenerse")
+    equipo=prompt("Consultar precio de equipo\nOpciones: pocion, espada, escudo, carpa, daga, todos. s para detenerse")
 }
-function sumaProductos(){
-    let producto1=parseInt(prompt("Ingresa el precio del primer producto"))
-    let producto2=parseInt(prompt("Ingresa el precio del segundo producto"))
-    let producto3=parseInt(prompt("Ingresa el precio del tercer producto"))
-    let producto4=parseInt(prompt("Ingresa el precio del cuarto producto"))
-    let producto5=parseInt(prompt("Ingresa el precio del quinto producto"))
-    let totalAPagar = producto1+producto2+producto3+producto4+producto5
-    console.log("El total de oro a pagar es "+totalAPagar)
-    if(totalAPagar>=101){
-        alert("No tienes oro suficiente, ve a completar aventuras o algo para comprar esto.")
-    }else{
-        alert("Gracias por su compra, ahora puede ir a cazar monstruos")
-    }
-}
-sumaProductos()
 
 
+const objetoComprable = Equipo.filter((objeto) => objeto.precio <100);
+objetoComprable.forEach((equipo)=>console.log("Puedes comprar:\n"+equipo.nombre))
+let compra=(prompt("Deseas comprar los objetos?\n(si,no, daga, escudo, espada, daga y escudo, daga y espada, escudo y espada)"))
+if(compra=="si"){
+    const inventario=["daga","escudo","espada"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}if(compra=="no"){
+    const inventario=["vacio"]
+    console.log("Tu inventario esta "+inventario+"\n Deberias comprar un arma")
+}if(compra=="daga"){
+    const inventario=["daga"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}if(compra=="espada"){
+    const inventario=["espada"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}if(compra=="escudo"){
+    const inventario=["escudo"]
+    console.log("Posees: "+inventario+"\n Deberias comprar un arma")
+}if(compra=="daga y escudo"){
+    const inventario=["daga","escudo"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}if(compra=="daga y espada"){
+    const inventario=["daga","espada"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}if(compra=="escudo y espada"){
+    const inventario=["escudo","espada"]
+    console.log("Posees: "+inventario)
+    console.log("Estas listo para una aventura, deberias probar primero tu arma si es que compraste una")
+    let dado = Math.round(Math.random()*19+1);
+console.log("Golpeas con tu arma el munieco de practica y le haces: "+dado+" de danio")
+}
 
 
 
