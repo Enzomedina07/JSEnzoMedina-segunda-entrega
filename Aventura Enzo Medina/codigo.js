@@ -1,8 +1,8 @@
 let nombre = prompt("Elija el nombre de su aventurero");
-console.log("Bienvenido aventurero " + nombre);
-alert("Bienvenido aventurero " + nombre);
+console.log("Bienvenido aventurero "+nombre);
+alert("Bienvenido aventurero "+nombre);
 let clase=prompt("Elige una clase para tu aventurero, puedes inventar una si quieres\nAlgunos ejemplos, guerrero, mago, barbaro");
-if(clase == "guerrero"){
+if(clase == "guerrero"||"mago"||"barbaro"){
     console.log("Un clasico me gusta");
     console.log("Eres un "+clase);
 }else{
@@ -11,24 +11,51 @@ if(clase == "guerrero"){
 }
 alert("Este es el nacimiento de "+nombre+" el "+clase);
 alert("Necesitaras equipamiento para comenzar tu aventura.\nVoy a darte una lista con todas las cosas que tenemos a la venta para que puedas comenzar.");
-let equipo = prompt("Lista de equipo, pocion, espada, escudo, carpa, daga.\nCuentas con 100 monedas de oro para comprar, compra sabiamente, escribe el nombre del objeto para conocer sus precios. escribe s para dejar de preguntar");
+let equipo = prompt("Lista de equipo, pocion, espada, escudo, carpa, daga.\nCuentas con 100 monedas de oro para comprar, compra sabiamente, escribe el nombre del objeto para conocer sus precios. escribe s para dejar de preguntar\nPuedes escribir (todos) para conocer todos los precios");
 
+//Objetos
+//funcion constructora
+const Equipo = [
+    {
+        nombre: "pocion",
+        precio:20,
+    },
+    {
+        nombre: "espada",
+        precio:40
+    },
+    {
+        nombre:"escudo",
+        precio:30
+    },
+    {
+        nombre:"carpa",
+        precio:15
+    },
+    {
+        nombre:"daga",
+        precio:25
+    },
+]
 while(equipo!="s"){
     switch (equipo){
         case "pocion":
-            console.log("El precio de la pocion es 20 de oro");
+            console.log("El precio de la pocion es: "+Equipo[0].precio+" de oro");
             break;
         case "espada":
-            console.log("El precio de la espada es 40 de oro");
+            console.log("El precio de la espada es: "+Equipo[1].precio+" de oro");
             break;
         case "escudo":
-            console.log("El precio del escudo es 30 de oro");
+            console.log("El precio del escudo es: "+Equipo[2].precio+" de oro");
             break;
         case "carpa":
-            console.log("El precio de la carpa es 10 de oro");
+            console.log("El precio de la carpa es: "+Equipo[3].precio+" de oro");
             break;
         case "daga":
-            console.log("El precio de la daga es 15 de oro");
+            console.log("El precio de la daga es: "+Equipo[4].precio+" de oro");
+            break;
+        case "todos":
+            console.log(Equipo)
             break;
         default:
             console.log("Eso no esta en la lista!");
